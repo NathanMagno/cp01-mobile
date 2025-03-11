@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import CalculoProduto from './components/CalculoProduto';
 
 export default function App() {
@@ -11,9 +11,9 @@ export default function App() {
   return (
     <View style={styles.container}>
 
+      <Image alt='Logo' source={require('./assets/logo.png')} height={10} width={10} />
 
-
-      <TextInput placeholder='Informe o nome do produto'
+      <TextInput style placeholder='Inform  e o nome do produto'
         value={nome} onChangeText={setNome} keyboardType='default' required />
 
       <TextInput placeholder='Informe o valor do produto' keyboardType='numeric'

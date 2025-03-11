@@ -1,4 +1,5 @@
-import { StyleSheet, TextInput, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import CalculoProduto from './components/CalculoProduto';
 
 export default function App() {
@@ -10,17 +11,24 @@ export default function App() {
   return (
     <View style={styles.container}>
 
+
+
       <TextInput placeholder='Informe o nome do produto'
-        value={nome} onChangeText={setNome} />
+        value={nome} onChangeText={setNome} keyboardType='default' required />
 
       <TextInput placeholder='Informe o valor do produto' keyboardType='numeric'
-        value={valor} onChangeText={setValor} />
+        value={valor} onChangeText={setValor} required />
 
       <TextInput placeholder='Informe o aumento do produto'
-        keyboardType='numeric' value={aumento} onChangeText={setAumento} />
+        keyboardType='numeric' value={aumento} onChangeText={setAumento} required />
 
 
-      <CalculoProduto />
+      <TouchableOpacity style={styles.appButtonContainer}
+        onPress={() => <CalculoProduto valor={valor}
+          aumento={aumento} />}><Text style={styles.appButtonText}>Calcular</Text></TouchableOpacity>
+
+      <CalculoProduto valor={valor}
+        aumento={aumento} />
 
     </View>
   );
@@ -31,6 +39,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
+  appButtonContainer: {
+    elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12
+  },
+  appButtonText: {
+    fontSize: 18,
+    color: "#ffffff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
+  },
+
 });

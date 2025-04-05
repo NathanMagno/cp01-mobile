@@ -1,17 +1,9 @@
-import { Text } from "react-native"
+import { Text } from "react-native";
 
-
-export default function CalculoProduto(props) {
-
-
-    return (
-        <>
-
-
-            <Text>{((props.aumento / 100) * props.valor) + props.valor}</Text>
-
-
-
-        </>
-    )
+export default function CalculoProduto({ aumento, valor }) {
+  return (
+    <>
+      <Text>{(aumento / 100) * valor + valor}</Text>
+    </>
+  );
 }
